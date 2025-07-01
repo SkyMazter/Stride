@@ -1,0 +1,69 @@
+/* color palette based on user request */
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Lato:wght@400;700&display=swap");
+
+:root {
+    --primary-background: #ffffff; /* White */
+    --greyscale-100: #f8f8f8;
+    --greyscale-200: #eaeaea;
+    --greyscale-300: #cccccc;
+    --greyscale-400: #a0a0a0;
+    --greyscale-500: #7a7a7a;
+    --greyscale-600: #575757;
+    --greyscale-700: #3a3a3a;
+    --greyscale-800: #222222;
+    --greyscale-900: #1a1a1a;
+    --seafoam-green-100: #e0f8f0; /* Very light seafoam */
+    --seafoam-green-200: #b3efdd;
+    --seafoam-green-300: #86e7cb;
+    --seafoam-green-400: #59dec8;
+    --seafoam-green-500: #2cd6b6; /* Mid-tone seafoam */
+    --seafoam-green-600: #25b49d;
+    --seafoam-green-700: #1e9185;
+    --seafoam-green-800: #166e6d;
+    --seafoam-green-900: #0f4b4b; /* Dark seafoam */
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --primary-background: #1a1a1a; /* Darker background for dark mode */
+        --greyscale-100: #1a1a1a;
+        --greyscale-200: #222222;
+        --greyscale-300: #3a3a3a;
+        --greyscale-400: #575757;
+        --greyscale-500: #7a7a7a;
+        --greyscale-600: #a0a0a0;
+        --greyscale-700: #cccccc;
+        --greyscale-800: #eaeaea;
+        --greyscale-900: #f8f8f8;
+        --seafoam-green-100: #0f4b4b;
+        --seafoam-green-200: #166e6d;
+        --seafoam-green-300: #1e9185;
+        --seafoam-green-400: #25b49d;
+        --seafoam-green-500: #2cd6b6; /* Mid-tone seafoam remains */
+        --seafoam-green-600: #59dec8;
+        --seafoam-green-700: #86e7cb;
+        --seafoam-green-800: #b3efdd;
+        --seafoam-green-900: #e0f8f0;
+    }
+}
+
+/* Class to apply the Lato and Inter fonts */
+.font-primary {
+    font-family: "Lato", "Inter", sans-serif;
+}
+
+body {
+    background-color: var(--primary-background);
+    color: var(--greyscale-900);
+    font-family: "Lato", "Inter", sans-serif;
+}
+
+.btn-primary {
+    background-color: var(--seafoam-green-300);
+    padding: 0.7rem;
+}
+
+.home {
+    margin-left: 1rem;
+    margin-right: 1rem;
+}
