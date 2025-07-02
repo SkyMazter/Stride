@@ -16,9 +16,11 @@
                 v-for="project in projects"
                 :key="project.id"
             >
-                <h4>{{ project.title }}</h4>
+                <span>
+                    <h4>{{ project.title }}</h4>
+                </span>
+                <!-- <span v-for="task in project.tasks" :key="task.id">
 
-                <span v-for="task in project.tasks" :key="task.id">
                     <label>
                         <input
                             type="checkbox"
@@ -27,6 +29,9 @@
                         />
                         {{ task.title }}
                     </label>
+                </span> -->
+                <span>
+                    <p>{{ project.percentage }}% Complete</p>
                 </span>
             </div>
         </div>
@@ -36,6 +41,8 @@
 <script setup lang="ts">
 import { invoke } from "@tauri-apps/api/core";
 import { onMounted, ref } from "vue";
+import { useRouter } from "vue-router";
+const router = useRouter();
 
 interface Task {
     id: number;
@@ -103,6 +110,10 @@ const sendUpdate = async (project_id: number, task_id: number) => {
     }
 };
 
+const handleClick = () => {
+    router.push("/submit");
+};
+
 onMounted(async () => loadData());
 </script>
 
@@ -128,8 +139,18 @@ nav {
     background-color: var(--greyscale-300);
     border-radius: 0.5rem;
     width: 45%;
-    padding: 0.5rem;
+    padding: 0.7rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    transition: background-color 0.3s ease;
 }
+
+.project-card:hover {
+    background-color: var(--seafoam-green-200);
+}
+
 h4 {
     margin-top: 0.5rem;
     margin-bottom: 0.5rem;

@@ -19,19 +19,6 @@ struct Project {
 }
 
 // use std::collections::HashMap;
-// use serde::Deserialize;
-
-// // #[derive(Deserialize)]
-// // struct TaskStatePayload {
-// //     state: HashMap<u32, HashMap<u32, bool>>,
-// // }
-
-// #[derive(Deserialize)]
-//  struct TaskTogglePayload {
-//     project_id: u32,
-//     task_id: u32,
-//     is_checked: bool,
-// }
 
 #[tauri::command]
 fn greet(name: &str) -> String {
@@ -40,17 +27,42 @@ fn greet(name: &str) -> String {
 
 #[tauri::command]
 fn get_all_projects() -> Value {
-    let sample_projects: Vec<Project> = vec![Project {
-        id: 1,
-        title: "Planning App".into(),
-        tasks: vec![Task {
-            id: 101,
-            title: "Desing UI".into(),
+    let sample_projects: Vec<Project> = vec![
+        Project {
+            id: 1,
+            title: "Planning App".into(),
+            tasks: vec![Task {
+                id: 101,
+                title: "Desing UI".into(),
+                is_complete: false,
+            }],
+            percentage: 0,
             is_complete: false,
-        }],
-        percentage: 69,
-        is_complete: false,
-    }];
+        },
+        Project {
+            id: 2,
+            title: "Build a Bird House".into(),
+            tasks: vec![
+                Task {
+                    id: 201,
+                    title: "Get Supplies".into(),
+                    is_complete: false,
+                },
+                Task {
+                    id: 202,
+                    title: "Cut Wood".into(),
+                    is_complete: false,
+                },
+                Task {
+                    id: 203,
+                    title: "Mount Base".into(),
+                    is_complete: false,
+                },
+            ],
+            percentage: 20,
+            is_complete: false,
+        },
+    ];
 
     json!(sample_projects)
 }

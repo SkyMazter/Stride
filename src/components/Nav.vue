@@ -1,6 +1,7 @@
 <template>
     <nav>
         <h1 @click="returnHome">Stride</h1>
+        <span> </span>
     </nav>
 </template>
 
@@ -9,9 +10,6 @@ import { useRouter } from "vue-router";
 const router = useRouter();
 
 const returnHome = () => router.push("/");
-const handleClick = () => {
-    router.push("/submit");
-};
 </script>
 
 <style scoped>

@@ -68,9 +68,25 @@ body {
 }
 
 .btn-primary {
-    background-color: var(--seafoam-green-800);
+    color: var(--seafoam-green-800);
     padding: 0.7rem;
-    color: var(--greyscale-200);
+    /* color: var(--greyscale-200); */
+    background-color: var(--primary-background);
+    border: solid var(--seafoam-green-800) 1px;
+    border-radius: 5px;
+    transition:
+        background-color 0.3s ease,
+        color 0.3s ease;
+}
+
+.btn-primary:hover {
+    background-color: var(--seafoam-green-800);
+    color: var(--primary-background);
+}
+.btn-primary:active {
+    background-color: var(--seafoam-green-500);
+    color: var(--primary-background);
+    border: solid var(--seafoam-green-500) 1px;
 }
 
 .home {
