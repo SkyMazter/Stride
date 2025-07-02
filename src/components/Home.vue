@@ -1,22 +1,33 @@
 <template>
     <div class="home">
-        <h3>Dashboard</h3>
+        <nav>
+            <h2>Dashboard</h2>
+            <span>
+                <button class="btn-primary" @click="handleClick">
+                    Add New +
+                </button>
+            </span>
+        </nav>
 
-        <div v-if="!is_loading && projects">
-            <div v-for="project in projects" :key="project.id">
-                <h3>{{ project.title }}</h3>
-                <ul>
-                    <li v-for="task in project.tasks" :key="task.id">
-                        <label>
-                            <input
-                                type="checkbox"
-                                v-model="checkedStates[project.id][task.id]"
-                                @change="() => sendUpdate(project.id, task.id)"
-                            />
-                            {{ task.title }}
-                        </label>
-                    </li>
-                </ul>
+        <h3>Current Projects</h3>
+        <div class="project-view" v-if="!is_loading && projects">
+            <div
+                class="project-card"
+                v-for="project in projects"
+                :key="project.id"
+            >
+                <h4>{{ project.title }}</h4>
+
+                <span v-for="task in project.tasks" :key="task.id">
+                    <label>
+                        <input
+                            type="checkbox"
+                            v-model="checkedStates[project.id][task.id]"
+                            @change="() => sendUpdate(project.id, task.id)"
+                        />
+                        {{ task.title }}
+                    </label>
+                </span>
             </div>
         </div>
     </div>
@@ -94,3 +105,33 @@ const sendUpdate = async (project_id: number, task_id: number) => {
 
 onMounted(async () => loadData());
 </script>
+
+<style scoped>
+.home {
+    width: 100%;
+}
+nav {
+    display: flex;
+    border-bottom: solid var(--greyscale-800) 0.5px;
+    width: 100%;
+    align-items: center;
+    justify-content: space-between;
+}
+.project-view {
+    display: flex;
+    flex-flow: row wrap;
+    gap: 1rem;
+    justify-content: start;
+    padding: 0.5rem;
+}
+.project-card {
+    background-color: var(--greyscale-300);
+    border-radius: 0.5rem;
+    width: 45%;
+    padding: 0.5rem;
+}
+h4 {
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+</style>

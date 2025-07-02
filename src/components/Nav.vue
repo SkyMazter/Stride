@@ -1,9 +1,6 @@
 <template>
     <nav>
         <h1 @click="returnHome">Stride</h1>
-        <span>
-            <button class="btn-primary" @click="handleClick">Add New +</button>
-        </span>
     </nav>
 </template>
 
@@ -19,12 +16,15 @@ const handleClick = () => {
 
 <style scoped>
 nav {
-    border-bottom: solid var(--greyscale-700) 0.5px;
-    margin-left: 1rem;
-    margin-right: 1rem;
+    /* border-right: solid var(--greyscale-800) 0.5px; */
+    padding-left: 1rem;
+    padding-right: 1rem;
     display: flex;
+    flex-flow: column;
     align-items: center;
     justify-content: space-between;
+    height: 100%;
+    background-color: var(--greyscale-200);
 }
 
 a {

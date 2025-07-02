@@ -52,15 +52,25 @@
     font-family: "Lato", "Inter", sans-serif;
 }
 
+#app {
+    display: flex;
+    height: 100vh;
+    margin: 0;
+    width: 100vw;
+}
+
 body {
     background-color: var(--primary-background);
     color: var(--greyscale-900);
     font-family: "Lato", "Inter", sans-serif;
+    margin: 0;
+    overflow: hidden;
 }
 
 .btn-primary {
-    background-color: var(--seafoam-green-300);
+    background-color: var(--seafoam-green-800);
     padding: 0.7rem;
+    color: var(--greyscale-200);
 }
 
 .home {
